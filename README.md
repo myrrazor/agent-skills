@@ -1,6 +1,6 @@
 # agent-skills
 
-Small, reusable skills for AI coding agents.
+My public agent skills.
 
 ## Fable guardrails
 
