@@ -1,0 +1,237 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Fable 5 Guardrail-Aware Route Plan",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "workflow_id",
+    "workflow_summary",
+    "context_baseline",
+    "tasks",
+    "batches"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "workflow_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]{0,63}$"
+    },
+    "workflow_summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "context_baseline": {
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "unknown"
+      ]
+    },
+    "assessment_limits": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tasks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "objective",
+          "dependencies",
+          "fallback_likelihood",
+          "confidence",
+          "classifier_family",
+          "whole_objective_relation",
+          "execution_lane",
+          "status"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "objective": {
+            "type": "string"
+          },
+          "dependencies": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "fallback_likelihood": {
+            "enum": [
+              "low",
+              "medium",
+              "high",
+              "unknown"
+            ]
+          },
+          "confidence": {
+            "enum": [
+              "low",
+              "medium",
+              "high"
+            ]
+          },
+          "classifier_family": {
+            "enum": [
+              "none",
+              "cyber",
+              "bio",
+              "frontier_llm",
+              "reasoning_extraction",
+              "multiple",
+              "unknown"
+            ]
+          },
+          "whole_objective_relation": {
+            "enum": [
+              "independent_benign",
+              "safety_sensitive",
+              "enables_sensitive",
+              "inseparable",
+              "unknown"
+            ]
+          },
+          "execution_lane": {
+            "enum": [
+              "fable_batch",
+              "fable_isolated",
+              "opus",
+              "human_review"
+            ]
+          },
+          "context_baseline": {
+            "enum": [
+              "low",
+              "medium",
+              "high",
+              "unknown"
+            ]
+          },
+          "required_inputs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "allowed_edit_paths": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "acceptance_checks": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "stop_conditions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "rationale": {
+            "type": "string"
+          },
+          "uncertainty": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "pending",
+              "in_progress",
+              "completed",
+              "blocked",
+              "needs_reassessment",
+              "routed_to_opus"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "batches": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "model",
+          "session_policy",
+          "task_ids",
+          "prompt_file",
+          "status"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "model": {
+            "enum": [
+              "fable",
+              "opus",
+              "human_review"
+            ]
+          },
+          "session_policy": {
+            "enum": [
+              "shared_fable_low",
+              "fresh_fable",
+              "separate_opus",
+              "human_review"
+            ]
+          },
+          "task_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1
+          },
+          "prompt_file": {
+            "type": "string"
+          },
+          "dependencies": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "handoff_inputs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "handoff_outputs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "status": {
+            "enum": [
+              "pending",
+              "in_progress",
+              "completed",
+              "blocked",
+              "needs_reassessment",
+              "routed_to_opus"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

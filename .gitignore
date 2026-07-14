@@ -1,0 +1,8 @@
+# Generated routing runs
+.claude/fable-routing/
+
+# Local-only calibration captures
+calibration/*.local.csv
+
+# Tool state
+.gstack/
