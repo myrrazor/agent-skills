@@ -6,4 +6,4 @@ My public agent skills.
 
 ## Changelog
 
-- **2026-07-14** — Added Fable Guardrails skills.
+- **2026-07-14** — Added Fable Guardrails skills with the detailed risk rubric.

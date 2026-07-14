@@ -8,6 +8,8 @@ Two Claude Code skills for routing a complete workflow between Fable 5 and Opus.
 
 This is a routing aid, not a jailbreak or guardrail bypass. It never hides intent, splits a sensitive objective into benign-looking prompts, or retries altered wording to search for a different result.
 
+The complete risk matrix and trigger guidance are embedded directly in both `SKILL.md` files. No separate rubric file is required.
+
 ## Install
 
 From the repository root, copy the skills and agents into a Claude Code project:
