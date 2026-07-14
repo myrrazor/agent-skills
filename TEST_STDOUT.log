@@ -1,8 +1,0 @@
-test_rejects_missing_columns (test_summarize_calibration.SummarizeCalibrationTests) ... ok
-test_rejects_missing_file (test_summarize_calibration.SummarizeCalibrationTests) ... ok
-test_summarizes_records (test_summarize_calibration.SummarizeCalibrationTests) ... ok
-
-----------------------------------------------------------------------
-Ran 3 tests in 0.102s
-
-OK

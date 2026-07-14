@@ -51,7 +51,7 @@ Also assign:
 - `execution_lane`: `fable_batch`, `fable_isolated`, `opus`, or `human_review`;
 - concise evidence and uncertainty notes.
 
-Read and follow the installed `references/risk-rubric.md` if available. The labels are heuristic bands, not numeric classifier probabilities.
+Use the routing rubric included in `fable-route-plan/SKILL.md`. The labels are heuristic bands, not numeric classifier probabilities.
 
 ## Routing rules
 

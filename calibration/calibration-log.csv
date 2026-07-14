@@ -1,1 +1,0 @@
-timestamp,task_id,predicted_likelihood,prediction_confidence,context_profile,claude_code_version,requested_model,served_model,fallback,category,notes
